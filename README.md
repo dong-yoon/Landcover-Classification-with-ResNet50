@@ -1,0 +1,1 @@
+# Landcover-Classification-with-ResNet50
