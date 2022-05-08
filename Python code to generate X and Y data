@@ -1,0 +1,32 @@
+# Importing few libraries
+import os
+import shutil
+import random
+from tqdm import tqdm
+
+import numpy as np
+import pandas as pd
+
+import PIL
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+DATASET = "input/2750"
+
+LABELS = os.listdir(DATASET)
+print(LABELS)
+
+# plot class distributions of whole dataset
+counts = {}
+
+for l in LABELS:
+    counts[l] = len(os.listdir(os.path.join(DATASET, l)))
+
+    
+plt.figure(figsize=(12, 6))
+
+plt.bar(range(len(counts)), list(counts.values()), align='center')
+plt.xticks(range(len(counts)), list(counts.keys()), fontsize=12, rotation=40)
+plt.xlabel('class label', fontsize=13)
+plt.ylabel('class size', fontsize=13)
+plt.title('EUROSAT Class Distribution', fontsize=15)
